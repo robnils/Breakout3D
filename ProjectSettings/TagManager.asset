@@ -9,6 +9,7 @@ TagManager:
   - Paddle
   - Border
   - DeathBorder
+  - TopBorder
   layers:
   - Default
   - TransparentFX

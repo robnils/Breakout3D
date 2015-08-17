@@ -198,7 +198,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 418830, guid: b71b49602a36dba4d99132b0ead4a916, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 11400402, guid: b71b49602a36dba4d99132b0ead4a916, type: 2}
       propertyPath: speed
@@ -224,7 +224,7 @@ GameObject:
   - 23: {fileID: 655916727}
   m_Layer: 0
   m_Name: TopWall
-  m_TagString: Border
+  m_TagString: TopBorder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -236,7 +236,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 655916725}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.9000001, z: 1}
+  m_LocalPosition: {x: 0, y: 5, z: 1}
   m_LocalScale: {x: 20, y: .200000003, z: 1}
   m_Children: []
   m_Father: {fileID: 1908741533}
@@ -272,7 +272,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 655916725}
   m_Material: {fileID: 13400000, guid: 9140884e4175b284292387b15031ad03, type: 2}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -343,7 +343,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1 &998739990
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,7 +356,6 @@ GameObject:
   - 92: {fileID: 998739993}
   - 124: {fileID: 998739992}
   - 81: {fileID: 998739991}
-  - 114: {fileID: 998739996}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -429,22 +428,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
---- !u!114 &998739996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 998739990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: effaa19d86a2e454dad8ff84919a45a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  texture: {fileID: 0}
-  numberOfBlocks: 1
-  yOffset: 0
-  xOffset: 0
+  m_RootOrder: 2
 --- !u!4 &1215441657 stripped
 Transform:
   m_PrefabParentObject: {fileID: 441420, guid: 187ab3059b4a1f146bc898ad8b17e701, type: 2}
@@ -498,7 +482,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1235143625}
   m_Material: {fileID: 13400000, guid: 9140884e4175b284292387b15031ad03, type: 2}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -551,7 +535,7 @@ Transform:
   - {fileID: 1215441657}
   - {fileID: 501395261}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!1001 &1266011721
 Prefab:
   m_ObjectHideFlags: 0
@@ -593,7 +577,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 441420, guid: 187ab3059b4a1f146bc898ad8b17e701, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2372996, guid: 187ab3059b4a1f146bc898ad8b17e701, type: 2}
       propertyPath: m_Materials.Array.data[1]
@@ -679,7 +663,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1271796569}
   m_Material: {fileID: 13400000, guid: 9140884e4175b284292387b15031ad03, type: 2}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -806,7 +790,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 441350, guid: b269f8023cb33244fa7497ef9d9bc55c, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11451648, guid: b269f8023cb33244fa7497ef9d9bc55c, type: 2}
       propertyPath: maxBounceAngle
@@ -828,6 +812,10 @@ Prefab:
     - target: {fileID: 11451648, guid: b269f8023cb33244fa7497ef9d9bc55c, type: 2}
       propertyPath: speed
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451648, guid: b269f8023cb33244fa7497ef9d9bc55c, type: 2}
+      propertyPath: randomBounceDeflect
+      value: .100000001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b269f8023cb33244fa7497ef9d9bc55c, type: 2}
@@ -915,7 +903,7 @@ GameObject:
   - 4: {fileID: 1908741533}
   m_Layer: 0
   m_Name: Borders
-  m_TagString: Untagged
+  m_TagString: Border
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -935,4 +923,47 @@ Transform:
   - {fileID: 655916726}
   - {fileID: 1785957813}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
+--- !u!1 &1914659231
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1914659233}
+  - 114: {fileID: 1914659232}
+  m_Layer: 0
+  m_Name: _SCRIPTS
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1914659232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1914659231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: effaa19d86a2e454dad8ff84919a45a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  texture: {fileID: 0}
+  numberOfBlocks: 0
+  yOffset: 0
+  xOffset: 0
+--- !u!4 &1914659233
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1914659231}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.78723526, y: 2.27694416, z: -1.0625}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
