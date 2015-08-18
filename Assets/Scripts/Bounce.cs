@@ -7,6 +7,7 @@ public class Bounce : MonoBehaviour
 	public float speed;
 	public float maxSpeed;
 	public GameObject player;
+	public GameObject topBorder;
 	public float randomBounceDeflect = 5.0f;
 
 	// Private fields
@@ -56,6 +57,15 @@ public class Bounce : MonoBehaviour
 
 	void OnTriggerEnter(Collider other)
 	{
+		// If we wall off the edge of the screen, die
+		if(other.tag == "DeathBorder")
+		{
+			Debug.Log("asdad");
+			Destroy(ball);
+			return;
+		}
+
+
 		// If hit paddle, rebound dependent on location
 		if(other.tag == "Paddle")
 		{
@@ -65,28 +75,31 @@ public class Bounce : MonoBehaviour
 			// Vector pointing from paddle to ball
 			Vector2 delta = ballPosition - paddlePosition;
 			Vector2 direction = delta.normalized; // Unit vector
-			
-			Vector2 trueVelocity = direction * speed; // Untampered velocity
 
-			ballRigidBody.velocity = new Vector2(trueVelocity.x + Mathf.Sign(delta.x) * Random.Range(-randomBounceDeflect, randomBounceDeflect)
-			                                     ,trueVelocity.y + Mathf.Sign(delta.y) * Random.Range(-randomBounceDeflect, randomBounceDeflect)
-			                                	); // Add random components so the ball doesn't get stuck in a loop
+			ballRigidBody.velocity = direction * speed;
 		}
 		else
 		{
-			// If hitting side walls, same velocity but negative x
-			if(other.tag == "Border")
-			{
-				Debug.Log("hit left or right wall");
-				Vector2 newVelocity = new Vector2(-ballRigidBody.velocity.x, ballRigidBody.velocity.y);
+			SphereCollider ballCollider = GetComponent<SphereCollider>();
+			Vector2 newVelocity;
 
-				ballRigidBody.velocity = newVelocity;
+			// To ensure the ball bounces off the left and right wall, you have to only 
+			// change the vertical velocity when you hit a block or TopBorder
+			if(other.tag == "TopBorder" || other.tag == "Block")
+			{
+				// If the vertical position of the position plus its radius plus a small safety value proportional 
+				// to the radius (to make sure the ball doesn't get stuck or anything), is greater than the object's y value 				
+				if(ballRigidBody.position.y + ballCollider.radius + (ballCollider.radius / 10.0f)  > other.transform.position.y)
+				{
+					newVelocity = new Vector2(ballRigidBody.velocity.x, -ballRigidBody.velocity.y);	
+					ballRigidBody.velocity = newVelocity;
+				}
 			}
 
-			// If hitting top wall, same velocity but negative y
-			else if (other.tag == "TopBorder")
+			// If side walls then change x direction
+			else
 			{
-				Vector2 newVelocity = new Vector2(ballRigidBody.velocity.x, -ballRigidBody.velocity.y);
+				newVelocity = new Vector2(-ballRigidBody.velocity.x, ballRigidBody.velocity.y);
 				ballRigidBody.velocity = newVelocity;
 			}
 
